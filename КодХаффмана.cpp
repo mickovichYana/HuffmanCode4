@@ -54,8 +54,8 @@ void buildHuffmanTree(string text, map<char, int>& freq, map<char, string>& huff
     priority_queue<HuffmanNode*, vector<HuffmanNode*>, compare> pq;
 
     // Создаю узлы для каждого символа и добавляю их в очередь
-    for (auto pair : freq) {
-        pq.push(new HuffmanNode(pair.first, pair.second));
+    for (map<char, int>::iterator it = freq.begin(); it != freq.end(); ++it) {
+        pq.push(new HuffmanNode(it->first, it->second));
     }
 
     // Строю дерево Хаффмана
